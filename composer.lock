@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ab2e37bf6bb0617bfb50144d39e4cf4",
+    "content-hash": "36e7e47bce664ee9e7d8740d9ada4aac",
     "packages": [
         {
             "name": "composer/installers",
@@ -402,6 +402,27 @@
                 "environment"
             ],
             "time": "2016-09-01T10:05:43+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/h5p",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/h5p/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/h5p.zip?timestamp=1511874873",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/h5p/",
+            "time": "2017-11-28T13:14:33+00:00"
         }
     ],
     "packages-dev": [
@@ -459,7 +480,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wpackagist-plugin/h5p": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
