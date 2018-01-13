@@ -30,7 +30,7 @@ get_header(); ?>
 
 <div class="col-xs-0 col-sm-0 col-md-0">
 	<?php
-		if ( is_category('lessons2') || ( is_single() && in_category('lessons2') ) ) {
+		if ( is_category('lessons') || ( is_single() && in_category('lessons') ) ) {
 		    get_sidebar('lessons');  //sidebar-wordpress.php
 		} else {
 		    get_sidebar();
