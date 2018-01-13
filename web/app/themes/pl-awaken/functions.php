@@ -158,6 +158,15 @@ function awaken_widgets_init() {
 		'after_title'   => '</h2></div>',
 	) );
 	register_sidebar( array(
+	'name'          => __( 'Lessons Sidebar', 'awaken' ),
+	'id'            => 'sidebar-lessons',
+	'description'   => '',
+	'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+	'after_widget'  => '</aside>',
+	'before_title'  => '<div class="widget-title-container"><h2 class="widget-title">',
+	'after_title'   => '</h2></div>',
+	) );
+	register_sidebar( array(
 		'name'          => __( 'Magazine 1', 'awaken' ),
 		'id'            => 'magazine-1',
 		'description'   => '',

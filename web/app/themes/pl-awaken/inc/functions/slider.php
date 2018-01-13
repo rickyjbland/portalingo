@@ -18,54 +18,57 @@ if ( !function_exists( 'awaken_featured_posts' ) ) :
         
         ?>
 
-        <div class="awaken-featured-container">
+    <div class="awaken-featured-container">
+        <!--SLIDER CONTAINER-->
             <div class="awaken-featured-slider">
-                
-                <section class="slider">
-                <div class="flexslider">
-                <ul class="slides">
-                <?php while( $slider_posts->have_posts() ) : $slider_posts->the_post(); ?>
-
-                    <li>
-                        <div class="awaken-slider-container">
-                            <!--RETRIEVING IMAGE LOCATIONS-->
-                            <?php
-                                if ( has_post_thumbnail() ) {
-                                    $thumb_id           = get_post_thumbnail_id();
-                                    $thumb_url_array    = wp_get_attachment_image_src($thumb_id, 'featured-slider', true);
-                                    $featured_image_url = $thumb_url_array[0]; 
-                                } else {
-                                    $featured_image_url = get_template_directory_uri() . '/images/slide.jpg';
-                                }
-                            ?>
-                            <!--END GETTING IMAGES-->
-                            
+            <section class="slider">
+            <div class="flexslider">
+            <ul class="slides">
+            <?php while( $slider_posts->have_posts() ) : $slider_posts->the_post(); ?>
+            <li>
+            <!--SLIDER ITEMS-->
+              <div class="awaken-slider-container">
+               <!--SLIDER INFO GET->
+                        <?php
+                            if ( has_post_thumbnail() ) {
+                                $thumb_id           = get_post_thumbnail_id();
+                                $thumb_url_array    = wp_get_attachment_image_src($thumb_id, 'featured-slider', true);
+                                $featured_image_url = $thumb_url_array[0]; 
+                            } else {
+                                $featured_image_url = get_template_directory_uri() . '/images/slide.jpg';
+                            }
+                        ?>
+                <!--END SLIDER INFO-->
+               
+                <!--SLIDER LINKS-->
+                        <a href="<?php the_permalink(); ?>" rel="bookmark">
                             <div class="awaken-slide-holder" 
                                 style="background: url(
                                     <?php echo $featured_image_url; ?>);">
 
-                                <div class="awaken-slide-content">
-                            
-                                    <div class="awaken-slider-details-container">
-                                        <a href="<?php the_permalink(); ?>" rel="bookmark">
-                                            <h3 class="awaken-slider-title"><?php the_title(); ?></h3>
-                                        </a>
-                                    </div>
-                            
-                                </div><!-- .awaken-slide-content -->
-                            </div><!--.awaken-slide-holder-->
+                            <div class="awaken-slide-content">
+                            <div class="awaken-slider-details-container">
 
-                        </div>
-                    </li>
+                                <h3 class="awaken-slider-title"><?php the_title(); ?></h3>
+                            </div>
+                            </div>
+                            </div>
+                        </a>
+                <!--SLIDER LINKS-->
+              </div>
+            <!--SLIDER ITEMS-->        
+            </li>
+            <?php endwhile; ?>
+            </ul>
+            </div>
+            </section>
+            </div>
+        <!--SLIDER-->
 
-                <?php endwhile; ?>
-                </ul>
-                </div>
-                </section>
-
-
-            </div><!-- .awaken-slider -->
+        <!--FEATURED POSTS ON RIGHT-->
+       
             <div class="awaken-featured-posts">
+            <!--FEATURED PHP-->
                 <?php
 
                 $method = get_theme_mod( 'fposts_display_method', 'category' );
@@ -93,30 +96,38 @@ if ( !function_exists( 'awaken_featured_posts' ) ) :
                 $fposts = new WP_Query( $args );
 
                 while( $fposts->have_posts() ) : $fposts->the_post(); ?>
+            <!--END FEATURED PHP-->
 
-                    <div class="afp">
+                <div class="afp">
+                    
+                <!--GET INFO-->
                         <?php
-                            if ( has_post_thumbnail() ) {
-                                $thumb_id           = get_post_thumbnail_id();
-                                $thumb_url_array    = wp_get_attachment_image_src($thumb_id, 'featured', true);
-                                $featured_image_url = $thumb_url_array[0]; 
-                            } else {
-                                $featured_image_url = get_template_directory_uri() . '/images/featured.jpg';
-                            }
+                        if ( has_post_thumbnail() ) {
+                            $thumb_id           = get_post_thumbnail_id();
+                            $thumb_url_array    = wp_get_attachment_image_src($thumb_id, 'featured', true);
+                            $featured_image_url = $thumb_url_array[0]; 
+                        } else {
+                            $featured_image_url = get_template_directory_uri() . '/images/featured.jpg';
+                        }
                         ?>                    
-                        <div class="afpi-holder" style="background: url(<?php echo $featured_image_url; ?>);">
-                            <div class="afp-content">
-                                <div class="afp-title">
-                                    <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
-                                </div>
-                            </div><!-- .afp-content -->
-                        </div><!-- .afpi-holder -->
-                    </div><!-- .afp -->
+                <!--END GET INFO-->
+                <a href="<?php the_permalink(); ?>" rel="bookmark">
+                    <div class="afpi-holder" style="background: url(<?php echo $featured_image_url; ?>);">
+                        <div class="afp-content">
+                            <div class="afp-title">
+                              <h3 class="awaken-slider-title"><?php the_title(); ?></h3>
+                            </div>
+                        </div><!-- .afp-content -->
+                    </div><!-- .afpi-holder -->
+                </a>
 
-                <?php endwhile; ?>
+                </div><!-- .afp -->
 
+            <?php endwhile; ?>
             </div>
-        </div>
+        <!--END FEATURED POSTS-->
+    </div>
+    
     <?php
     }
 
