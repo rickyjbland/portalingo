@@ -28,8 +28,7 @@ get_header(); ?>
 </div>
 <!--MAIN CONTENT END -->
 
-<!--
-<div class="col-xs-12 col-sm-6 col-md-2">
+<div class="col-xs-0 col-sm-0 col-md-0">
 	BEGIN LESSONS SIDEBAR
 	<?php
 		if ( is_category('lessons') || ( is_single() && in_category('lessons') ) ) {
@@ -40,8 +39,6 @@ get_header(); ?>
 	?>
 	END LESSONS SIDEBAR
 </div>
- -->
-
-
+ 
 </div><!-- .row -->
 <?php get_footer(); ?>
