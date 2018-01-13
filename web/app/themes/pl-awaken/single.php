@@ -29,15 +29,13 @@ get_header(); ?>
 <!--MAIN CONTENT END -->
 
 <div class="col-xs-0 col-sm-0 col-md-0">
-	BEGIN LESSONS SIDEBAR
 	<?php
-		if ( is_category('lessons') || ( is_single() && in_category('lessons') ) ) {
+		if ( is_category('lessons2') || ( is_single() && in_category('lessons2') ) ) {
 		    get_sidebar('lessons');  //sidebar-wordpress.php
 		} else {
 		    get_sidebar();
 		}
 	?>
-	END LESSONS SIDEBAR
 </div>
  
 </div><!-- .row -->
